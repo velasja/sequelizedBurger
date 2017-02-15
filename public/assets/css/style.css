@@ -1,0 +1,46 @@
+body {
+	background-color:#84ff52;
+}
+
+img {
+	margin-left:45%;
+}
+
+h1 {
+	margin-left:40%;
+}
+
+.burger {
+	background-color:#eee;
+	font-family:monospace;
+	text-align:center;
+	height: 30px;
+	width: 300px;
+	border-width: 1px;
+	border: darkgray;
+	border-style: outset;
+	margin-bottom: 8px;
+	position:relative;
+}
+
+div.devoured-burger {
+	background-color:#ccc;
+	font-family:monospace;
+	text-align:center;
+	height: 30px;
+	width: 300px;
+	border-color: azure;
+	color: azure;
+	border-width: thin;
+	border-style: solid;
+}
+
+button.devour {
+	position:absolute;
+	right: -121px;
+	top: 0;
+}
+
+.submit.col-md-6 {
+	margin: 5% 37%;
+}
