@@ -5,33 +5,38 @@ var router = express.Router();
 router.get("/", function(req, res) {
 	db.Burger.findAll({})
   .then(function(dbBurger) {
-    res.json(dbBurger);
+    var hbsObject = {
+      burgers: dbBurger
+    };
+    res.render("index", hbsObject);
+    console.log(dbBurger);
   })
 		
 });
 
 router.post("/", function(req, res) {
   db.Burger.create({
-    burger_name: req.body.burger_name,
-    devoured: req.body.devoured,
-    created_on: req.body.created_on
-  }).then(function(dbBurger) {
-    res.json(dbBurger);
+    id: req.body.id,
+    burger_name: req.body.burger_name
+  }).then(function() {
+    res.redirect("/");
   });
    
 });
 
 router.put("/:id", function(req, res) {
-  db.Burger.update(req.body,
+  var condition = req.params.id;
+  db.Burger.update({
+    devoured: req.body.devoured
+  },
     {
       where: {
-        id: req.body.id
+        id: condition
       }
-    }).then(function(dbBurger) {
-      res.json(dbBurger);
+    }).then(function() {
+      res.redirect("/");
     });
  
 });
-
 // Export routes for server.js to use.
 module.exports = router;

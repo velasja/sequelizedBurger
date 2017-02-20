@@ -3,18 +3,22 @@ module.exports = function(sequelize, DataTypes) {
     burger_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: (
+      validate: {
         len: [1]
-      )
+      }
     },
     devoured: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    },
-    created_on: {
-      type: DataTypes.DATE,
-      defaultValue: sequelize.literal('NOW()')
+    }    
+  },
+    {
+      timestamps: true,
+      createdAt: "created_on",
+      updatedAt: false,
+      deletedAt: false
     }
-  });
+  );
   return Burger;
+  console.log(Burger);
 };
